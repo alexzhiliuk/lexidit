@@ -1,0 +1,17 @@
+.input {
+    border: $inputBorder;
+    border-radius: 8px;
+    background: $colorInput;
+    padding: 0 1.1em;
+    height: clamp(46px, 5vw, 54px);
+
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1;
+    color: $colorBlack;
+
+    &::placeholder {
+        color: $colorPlaceholder
+    }
+
+
+}

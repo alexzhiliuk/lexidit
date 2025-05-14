@@ -1,0 +1,109 @@
+.contact {
+
+    padding: clamp(20px, 3vw, 36px);
+    border-radius: clamp(12px, 2vw, 20px);
+    border: $inputBorder;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+
+    & > * {
+        flex: 1;
+    }
+
+    @media screen and (max-width: $breakpoint768) {
+        flex-direction: column;
+        & > * {
+            flex: unset;
+            width: 100%;
+        }
+    }
+
+    // .contact__location
+    &__location {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        padding-left: 38px;
+        position: relative;
+        &::before {
+            content: '';
+            width: 26px;
+            aspect-ratio: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(../img/contact/icon.svg) center / contain no-repeat;
+        }
+
+        @media screen and (max-width: $breakpoint768) {
+            border-bottom: $inputBorder;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            padding-left: 28px;
+
+            &::before {
+                content: '';
+                width: 20px;
+            }
+        }
+    }
+
+    // .contact__title
+    &__title {
+        font-size: clamp(18px, 3vw, 28px);
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    // .contact__caption
+    &__caption {
+        @include text;
+        color: $colorText;
+    }
+
+    // .contact__info
+    &__info {
+        color: $colorText;
+
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+
+        & > * {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(12px, 2vw, 24px);
+        }
+
+        @media screen and (max-width: $breakpoint768) {
+            flex-wrap: wrap;
+        }
+    }
+
+    // .contact__address
+    &__address {
+        @include text;
+    }
+
+    // .contact__email
+    &__email {
+        @extend .contact__address;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        white-space: nowrap;
+    }
+
+    // .contact__phone
+    &__phone {
+        font-size: clamp(18px, 2vw, 21px);
+        font-weight: 500;
+        line-height: 1.4;
+        white-space: nowrap;
+    }
+}

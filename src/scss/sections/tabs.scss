@@ -1,0 +1,126 @@
+.tabs {
+
+    background: $colorBgBlue;
+    border-radius: 16px;
+
+    // .tabs__header
+    &__header {
+        padding: clamp(12px, 2vw, 24px) clamp(12px, 3vw, 56px);
+        border-bottom: $inputBorder;
+    }
+
+    // .tabs__switches
+    &__switches {
+        padding: 6px;
+        border-radius: 12px;
+        background: $colorWhite;
+
+        display: flex;
+        gap: 6px;
+
+        & > * {
+            flex: 1;
+        }
+
+        @media screen and (max-width: $breakpoint992) {
+            flex-direction: column;
+
+            & > * {
+                flex: unset;
+            }
+        }
+    }
+
+    // .tabs__body
+    &__body {
+        padding: clamp(20px, 3vw, 56px);
+
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 4vw, 40px);
+    }
+
+    // .tabs__columns
+    &__columns {
+        display: flex;
+        gap: 56px;
+
+        & > * {
+            flex: 1;
+        }
+
+        @media screen and (max-width: $breakpoint992) {
+            flex-direction: column;
+            gap: clamp(16px, 2vw, 24px);
+
+            & > * {
+                flex: unset;
+            }
+        }
+    }
+
+    // .tabs__list
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(16px, 2vw, 24px);
+        @include text;
+
+        li {
+            display: flex;
+            gap: 20px;
+
+            &::before {
+                content: '';
+                height: 2px;
+                width: 20px;
+                flex-shrink: 0;
+                background: $colorPrimary;
+                display: block;
+                position: relative;
+                top: .33lh;
+            }
+        }
+    }
+
+    // .tabs__btn
+    &__btn {
+        width: min(400px, 100%);
+        align-self: center;
+    }
+}
+
+.tab {
+    padding: 8px;
+    border-radius: 8px;
+    height: clamp(46px, 5vw, 54px);
+
+    font-size: clamp(15px, 2vw, 18px);
+    font-weight: 600;
+    text-align: center;
+
+    color: rgba($color: $colorBlack, $alpha: .8);
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        aspect-ratio: 1;
+        background: url(../img/tabs/icon.svg) center / contain no-repeat;
+        opacity: 0;
+    }
+
+    &_active {
+        background: $colorPrimary;
+        color: $colorWhite;
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}

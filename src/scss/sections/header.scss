@@ -1,0 +1,390 @@
+.header {
+
+    background: $colorPrimary;
+    color: $colorWhite;
+    padding: clamp(12px, 3vw, 28px) 0;
+    position: sticky;
+    z-index: 998;
+    top: 0;
+
+    // .header__container
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+
+        white-space: nowrap;
+        position: relative;
+
+        @media screen and (max-width: $burgerBreakpoint) {
+            justify-content: center;
+        }
+    }
+
+    // .header__logo
+    &__logo {
+        width: clamp(160px, 20vw, 200px);
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // .header__nav
+    &__nav {
+        @media screen and (max-width: $burgerBreakpoint) {
+            display: none;
+        }
+    }
+
+    // .header__menu
+    &__menu {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        @include menu;
+
+        @media screen and (min-width: $burgerBreakpoint) and (max-width: $breakpoint1400) {
+            font-size: 15px;
+        }
+
+        & > li > a {
+            @include hoverUnderline;
+        }
+
+    }
+
+    // .header__dropdown
+    &__dropdown {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: url(../img/dropdown/Linear/Arrows/Alt\ Arrow\ Down.svg) center center / contain no-repeat;
+        }
+
+        .dropdown {
+            display: none;
+            flex-direction: column;
+            gap: 0.75em;
+            padding: 16px;
+
+            background: rgba($color: $colorWhite, $alpha: .8);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 8px;
+            color: $colorBlack;
+
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            min-width: 100%;
+
+            &::before {
+                content: '';
+                width: 100%;
+                height: 12px;
+                position: absolute;
+                top: 0;
+                left: 0; right: 0;
+                translate: 0 -100%;
+            }
+
+            a {
+                font-weight: 400;
+
+                &:hover {
+                    color: $colorPrimary;
+                }
+            }
+        }
+
+        &:hover {
+            .dropdown {
+                display: flex;
+            }
+        }
+    }
+
+    // .header__right
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+
+        @media screen and (min-width: $burgerBreakpoint) and (max-width: $breakpoint1400) {
+            gap: 16px;
+        }
+        @media screen and (max-width: $burgerBreakpoint) {
+            display: none;
+        }
+        
+    }
+
+    // .header__phone
+    &__phone {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        font-weight: 600;
+        font-size: 18px;
+
+        span {
+            @include hoverUnderline;
+        }
+
+        svg {
+            width: 24px;
+            height: auto;
+            display: block;
+        }
+
+        @media screen and (min-width: $burgerBreakpoint) and (max-width: $breakpoint1400) {
+            font-size: 15px;
+        }
+        @media screen and (max-width: $burgerBreakpoint) {
+            display: none;
+        }
+    }
+
+    // .header__socials
+    &__socials {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @media screen and (min-width: $burgerBreakpoint) and (max-width: $breakpoint1400) {
+            gap: 4px;
+        }
+    }
+
+    &__btn {
+        @media screen and (min-width: $burgerBreakpoint) and (max-width: $breakpoint1400) {
+            font-size: 13px;
+        }
+    }
+
+    &__burger {
+        @media screen and (min-width: $burgerBreakpoint) {
+            display: none;
+        }
+
+        position: absolute;
+        left: $containerPadding;
+        top: 50%;
+        translate: 0 -50%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        padding: 2px;
+
+        height: 24px;
+        width: 24px;
+
+        
+        &::before,
+        &::after {
+            content: '';
+        }
+
+        &::before,
+        &::after,
+        span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+            background: $colorWhite;
+        }
+
+        &.active {
+            span {
+                opacity: 0;
+            }
+
+            &::before {
+                rotate: 45deg;
+                top: 40%;
+                position: relative;
+                translate: 0 -50%;
+            }
+
+            &::after {
+                rotate: -45deg;
+                bottom: 40%;
+                position: relative;
+                translate: 0 50%;
+            }
+        }
+
+    }
+
+    &__phone-btn {
+        @media screen and (min-width: $burgerBreakpoint) {
+            display: none;
+        }
+        position: absolute;
+        right: $containerPadding;
+        top: 50%;
+        translate: 0 -50%;
+    }
+}
+
+
+.mobile-menu {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 997;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow-y: auto;
+
+    transform: translateX(100%);
+    opacity: 0;
+    &.active {
+        animation: slideIn 0.5s forwards;
+    }
+
+
+    background: $colorWhite;
+    padding: 112px $containerPadding 52px;
+
+    // .mobile-menu__ul
+    &__ul {
+        @include menu;
+
+        border-top: $defaultBorder;
+        color: $colorText;
+
+        li {
+            padding: 12px 0;
+            border-bottom: $defaultBorder;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2px 0;
+
+            &.mobile-menu__next {
+                &::after {
+                    content: '';
+                    width: 24px;
+                    aspect-ratio: 1;
+                    flex-shrink: 0;
+                    background: url(../img/dropdown/arrow_right.svg) center / contain no-repeat;
+                    
+                }
+            }
+            &.mobile-menu__prev {
+                justify-content: flex-start;
+                gap: 4px;
+                &::before {
+                    content: '';
+                    width: 24px;
+                    aspect-ratio: 1;
+                    flex-shrink: 0;
+                    background: url(../img/dropdown/arrow_right.svg) center / contain no-repeat;
+                    rotate: 180deg;
+                    
+                }
+            }
+        }
+    }
+
+    // .mobile-menu__info
+    &__info {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    // .mobile-menu__contacts
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    // .mobile-menu__socials
+    &__socials {
+        display: flex;
+        gap: 12px;
+
+        & > * {
+            flex: 1;
+        }
+    }
+
+    // .mobile-menu__social
+    &__social {
+        font-size: 16px;
+        line-height: 1;
+        color: $colorText;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+        
+        height: 46px;
+        border-radius: 8px;
+        border: $defaultBorder;
+
+        svg {
+            width: 24px;
+            height: auto;
+            display: block;
+        }
+    }
+
+    // .mobile-menu__phone
+    &__phone {
+        height: 46px;
+    }
+
+    // .mobile-menu__lang
+    &__lang {
+        font-size: 18px;
+        color: $colorPlaceholder;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+
+        span {
+            width: 10px;
+            height: 1px;
+            background: $colorPlaceholder;
+        }
+
+        a {
+            &.active {
+                color: $colorPrimary;
+            }
+        }
+    }
+}
+

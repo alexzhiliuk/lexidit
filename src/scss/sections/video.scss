@@ -1,0 +1,49 @@
+.video {
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    & > * {
+        flex: 1;
+    }
+
+
+    @media screen and (max-width: $breakpoint992) {
+        flex-direction: column;
+    }
+
+    // .video__content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(16px, 3vw, 36px);
+        align-items: flex-start
+    }
+
+    // .video__title
+    &__title {
+        @include h2;
+    }
+
+    // .video__iframe
+    &__iframe {
+        background: $colorWhite;
+        border-radius: 12px;
+        padding: 12px;
+
+        aspect-ratio: 604 / 455;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+
+        @media screen and (max-width: $breakpoint992) {
+            width: 100%;
+        }
+    }
+}

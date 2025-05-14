@@ -1,0 +1,190 @@
+.cta-compact {
+
+    background: $colorWhite;
+    border-radius: 20px;
+
+    margin-top: 30px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: $colorBlack;
+
+    @media screen and (max-width: $breakpoint992) {
+        flex-direction: column;
+        align-items: unset;
+        padding: 30px 20px 20px;
+        border-radius: 12px;
+        gap: 16px;
+    }
+
+
+    // .cta-compact__text
+    &__text {
+        display: flex;
+        align-items: center;
+        flex: 0 1 368px;
+        
+        @include text;
+        font-weight: 500;
+
+        @media screen and (max-width: $breakpoint992) {
+            flex: unset;
+            font-size: 18px;
+            line-height: 1.1;
+
+            br {
+                display: none;
+            }
+        }
+    }
+
+    // .cta-compact__img
+    &__img {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: flex-end;
+        margin-right: 16px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // .cta-compact__fields
+    &__fields {
+        display: flex;
+        flex-grow: 1;
+        gap: 12px;
+
+        input {
+            flex-grow: 1;
+        }
+
+        @media screen and (max-width: $breakpoint768) {
+            flex-direction: column;
+        }
+    }
+}
+
+
+.cta {
+
+    background: url(../img/cta/Pattern.png) center center / 2500px auto no-repeat;
+    background-color: $colorPrimary;
+    color: $colorWhite;
+
+    @media screen and (max-width: $breakpoint576) {
+        background-position: 27% center;
+    }
+
+    // .cta__container
+    &__container {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        & > * {
+            flex: 1;
+        }
+
+        @media screen and (max-width: $breakpoint992) {
+            flex-direction: column;
+            align-items: unset;
+            gap: 20px;
+        }
+    }
+
+    // .cta__content
+    &__content {
+    }
+
+    // .cta__title
+    &__title {
+        font-size: clamp(24px, 4vw, 36px);
+        font-weight: 700;
+        line-height: 1.2;
+
+        @media screen and (max-width: $breakpoint576) {
+            br {
+                display: none;
+            }
+        }
+    }
+
+    // .cta__text
+    &__text {
+        @include text;
+        margin-top: clamp(.5em, 2vw, 1em);
+
+        @media screen and (max-width: $breakpoint576) {
+            br {
+                display: none;
+            }
+        }
+    }
+
+    // .cta__form
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 3vw, 32px);
+    }
+
+    // .cta__items
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(16px, 3vw, 32px);
+    }
+
+    // .cta__item
+    &__item {
+        font-size: 16px;
+        line-height: 1.4;
+        
+        display: flex;
+        gap: 12px;
+        
+        &::before {
+            content: '';
+            display: block;
+            width: clamp(24px, 3vw, 26px);
+            height: clamp(24px, 3vw, 26px);
+            flex-shrink: 0;
+            background: url(../img/cta/icon.svg) center / contain no-repeat;
+            position: relative;
+            top: -0.1em;
+        }
+
+        @media screen and (max-width: $breakpoint576) {
+            br {
+                display: none;
+            }
+        }
+    }
+
+    // .cta__fields
+    &__fields {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @media screen and (min-width: $breakpoint576) {
+            &_row {
+                flex-direction: row;
+                
+                .input {
+                    flex-grow: 1;
+                }
+            }
+
+            .btn {
+                max-width: fit-content;
+            }
+        }
+    }
+}

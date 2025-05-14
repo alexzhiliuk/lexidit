@@ -1,0 +1,67 @@
+.btn {
+    transition: $normalTransition;
+
+    color: $colorWhite;
+    
+    font-weight: 600;
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 1.44em;
+    height: clamp(46px, 5vw, 54px);
+    @media screen and (max-width: $breakpoint768) {
+        padding: 0 1.37em;
+    }
+
+    background: $colorBlack;
+    border-radius: 8px;
+    white-space: nowrap;
+
+    svg {
+        color: $colorWhite;
+    }
+
+    &:hover {
+        background: $colorWhite;
+        color: $colorPrimary;
+
+        svg {
+            color: $colorPrimary;
+        }
+    }
+
+    &_s {
+        height: clamp(40px, 5vw, 46px);
+        font-size: 16px;
+        padding: 0 1.37em;
+        line-height: 1;
+        font-size: clamp(14px, 2vw, 16px);
+    }
+
+    &_red {
+        background: $colorPrimary;
+
+        svg {
+            color: $colorPrimary;
+        }
+
+        &:hover {
+            background: $colorBlack;
+            color: $colorWhite;
+
+            svg {
+                color: $colorWhite
+            }
+        }
+    }
+
+    &_white {
+        background-color: $colorWhite;
+        color: $colorText;
+    }
+}

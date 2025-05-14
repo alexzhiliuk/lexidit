@@ -1,0 +1,31 @@
+// @import "fonts";
+@import "mixins";
+@import "typo";
+@import "vars";
+@import "reset";
+@import "global";
+
+@import "./UI/btn";
+@import "./UI/input";
+@import "./UI/cards";
+@import "./UI/benefit";
+@import "./UI/service-link";
+@import "./UI/contact";
+
+@import "./sections/header";
+@import "./sections/hero";
+@import "./sections/cta";
+@import "./sections/numbers";
+@import "./sections/team";
+@import "./sections/footer";
+@import "./sections/advantages";
+@import "./sections/tabs";
+@import "./sections/about";
+@import "./sections/video";
+@import "./sections/steps";
+@import "./sections/messangers";
+@import "./sections/news";
+@import "./sections/popup";
+
+
+@import "../libs/swiper/swiper";

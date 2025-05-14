@@ -1,0 +1,38 @@
+<div class="messangers">
+    <div class="messangers__body">
+        <a href="" class="messangers__item" style="--i: 2;">
+            <img src="@img/messangers/tg.png" alt="">
+        </a>
+        <a href="" class="messangers__item" style="--i: 1;">
+            <img src="@img/messangers/whts.png" alt="">
+        </a>
+    </div>
+    <button class="messangers__item js-messanger-btn" data-status="close">
+        <img src="@img/messangers/Widget.png" alt="" class="js-messanger-open">
+        <img src="@img/messangers/close.png" alt="" class="js-messanger-close" style="display: none;">
+    </button>
+</div>
+
+<script>
+    $(".js-messanger-btn").click(function() {
+        let status = $(this).data("status")
+        
+        if (status == "close") {
+            $(this).find(".js-messanger-close").show()
+            $(this).find(".js-messanger-open").hide()
+            $(this).data("status", "open")
+
+            $(this).parents(".messangers").find(".messangers__body").addClass("messangers__body_active")
+        }
+        if (status == "open") {
+            $(this).find(".js-messanger-open").show()
+            $(this).find(".js-messanger-close").hide()
+            $(this).data("status", "close")
+
+            $(this).parents(".messangers").find(".messangers__body").fadeOut(function() {
+                $(this).parents(".messangers").find(".messangers__body").removeClass("messangers__body_active")
+                $(this).parents(".messangers").find(".messangers__body").fadeIn()
+            })            
+        }
+    })
+</script>

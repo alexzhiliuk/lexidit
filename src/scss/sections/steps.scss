@@ -1,0 +1,101 @@
+.steps {
+
+    border-radius: 16px;
+    padding: 32px;
+    padding-bottom: 40px;
+
+    background: $gradientBg1, $gradientBg2, #232323;
+    color: $colorWhite;
+
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    // .steps__header
+    &__header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(8px, 1vw, 12px);
+
+        counter-reset: steps;
+
+        @media screen and (max-width: $breakpoint576) {
+            flex-direction: column;
+
+            & > * {
+                width: 100%;
+            }
+        }
+    }
+
+    // .steps__step
+    &__step {
+        padding: 12px;
+        padding-right: 18px;
+        border-radius: 8px;
+        border: 1px solid rgba($color: $colorWhite, $alpha: .3);
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        font-size: 16px;
+        font-weight: 600;
+        color: $colorWhite;
+        white-space: nowrap;
+
+        &::before {
+            content: counter(steps);
+            counter-increment: steps;
+            font-weight: 700;
+
+            width: 30px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: $colorPrimary;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:last-child {
+            &::before {
+                content: '';
+                background-image: url(../img/steps/check.svg);
+                background-position: center center;
+                background-size: 16px 16px;
+                background-repeat: no-repeat;
+            }
+
+            &.steps__step_active {
+                &::before {
+                    content: '';
+                    background-image: url(../img/steps/check-active.svg);
+                }
+            }
+        }
+
+        &_active {
+            border-color: $colorPrimary;
+            background: $colorPrimary;
+
+            &::before {
+                color: $colorBlack;
+                background: $colorWhite;
+            }
+        }
+
+    }
+
+    // .steps__body
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        max-width: 968px;
+        font-size: 18px;
+        line-height: 1.35;
+    }
+}

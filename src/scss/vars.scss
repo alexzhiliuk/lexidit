@@ -1,0 +1,51 @@
+// Container
+$conteinerWidth: 1232 + px;
+$containerPadding: 20 + px;
+
+// Breakpoints
+$breakpoint1440: 1439.98 + px;
+$breakpoint1400: 1399.98 + px;
+$breakpoint1200: 1199.98 + px;
+$breakpoint1024: 1023.98 + px;
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint576: 575.98 + px;
+$breakpoint480: 479.98 + px;
+
+// Colors
+$colorWhite: #FFFFFF;
+$colorBlack: #232323;
+$colorGray: #C8C8C8;
+$colorPlaceholder: #808080;
+$colorInput: #FAFAFA;
+$colorText: #34343A;
+$colorText2: #50555D;
+$colorPrimary: #ED3A3A;
+$colorBgBlue: #F3F4F6;
+$colorBgBlue2: #E2E5EA;
+$colorSectionBg: #EAEBED;
+
+$gradientBg1: linear-gradient(72.48deg, rgba(58, 142, 237, 0.15) 0%, rgba(255, 56, 122, 0.15) 100%);
+$gradientBg2: linear-gradient(0deg, rgba(35, 35, 35, 0.9), rgba(35, 35, 35, 0.9));
+
+// Fonts
+$fontPrimary: "Fira Sans";
+
+// Layers
+$headerLayer: 9;
+$popupLayer: 10;
+
+// Burger
+$burgerBreakpoint: $breakpoint1024;
+
+// Grid
+$gridTabletBreakpoint: $breakpoint1200;
+$gridMobileBreakpoint: $breakpoint576;
+
+// Transitions
+$quickTransition: all 120ms ease-out;
+$normalTransition: all 250ms ease-out;
+
+// Borders
+$inputBorder: 1px solid rgba(35, 35, 35, 0.15);
+$defaultBorder: 1px solid #E4E4E4;

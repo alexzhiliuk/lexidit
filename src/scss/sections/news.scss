@@ -1,0 +1,231 @@
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, 1vw, 12px);
+}
+
+.article {
+    & > *:first-child {
+        margin-top: 0;
+    }
+
+    color: $colorText;
+
+    $titleMargin: clamp(32px, 5vw, 52px);
+
+    h2 {
+        @include h1;
+        margin-top: $titleMargin;
+    }
+    h3 {
+        @include h2;
+        margin-top: $titleMargin;
+    }
+    h4 {
+        @include h3;
+        font-weight: 700;
+        margin-top: $titleMargin;
+    }
+    h5 {
+        @include h4;
+        font-weight: 700;
+        margin-top: $titleMargin;
+    }
+    h6 {
+        @include h5;
+        margin-top: $titleMargin;
+    }
+
+    p {
+        @include text;
+        margin-top: 1em;
+    }
+
+    ul, ol {
+        @include text;
+        margin-top: 1.5em;
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+    }
+
+    ol {
+        list-style-type: decimal;
+        list-style-position: inside;
+    }
+
+    ul {
+        display: flex;
+            flex-direction: column;
+            gap: .5em;
+            li {
+                display: flex;
+
+                &::before {
+                    content: '';
+                    width: 4px;
+                    height: 4px;
+                    flex-shrink: 0;
+                    border-radius: 50%;
+                    display: block;
+                    background-color: $colorText;
+                    margin: 0.5em 0.5em 0 0.2em;
+                }
+            }
+    }
+
+    a {
+        text-decoration: underline;
+        color: $colorPrimary;
+    }
+
+    blockquote {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 3vw, 32px);
+        padding-left: clamp(20px, 4vw, 40px);
+        border-left: 4px solid $colorPrimary;
+        margin: $titleMargin 0;
+
+        p {
+            &:first-child {
+                @include h3;
+                margin-top: 0;
+            }
+            &:last-child {
+                @include text;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        scrollbar-width: none;
+
+        @media screen and (max-width: $breakpoint576) {
+            width: unset;
+            @include width100vw;
+            padding: 0 $containerPadding;
+            
+        }
+    }
+
+    table {
+        margin: $titleMargin 0;
+        border-radius: 20px;
+        border-collapse: collapse;
+        @include text;
+
+        $radiusTable: clamp(12px, 2vw, 20px);
+
+        @media screen and (max-width: $breakpoint576) {
+            width: max-content;
+            th {
+                width: 250px;
+            }
+        }
+
+        th {
+            background: $colorBlack;
+            color: $colorWhite;
+            text-align: left;
+            font-weight: 500;
+
+            &:first-child {
+                border-top-left-radius: $radiusTable;
+            }
+            &:last-child {
+                border-top-right-radius: $radiusTable;
+            }
+        }
+
+        td {
+            background: $colorWhite;
+        }
+
+        th, td {
+            padding: clamp(12px, 2vw, 20px) clamp(20px, 3vw, 32px);
+        }
+
+        tbody {
+            tr {
+                border-top: $defaultBorder;
+
+                &:last-child {
+                    td:first-child {
+                        border-bottom-left-radius: $radiusTable;
+                    }
+                    td:last-child {
+                        border-bottom-right-radius: $radiusTable;
+                    }
+                }
+            }
+        }
+    }
+
+    .img {
+        margin: $titleMargin 0;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        & > * {
+            flex: 1;
+        }
+
+        * {
+            margin-top: 0;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 0 clamp(20px, 4vw, 40px);
+        }
+
+        @media screen and (max-width: $breakpoint992) {
+            flex-direction: column;
+
+            div {
+                padding: 0;
+            }
+        }
+
+        img {
+            border-radius: 20px;
+            aspect-ratio: 60 / 37;
+            width: calc(50% - 12px);
+    
+            @media screen and (max-width: $breakpoint992) {
+                width: 100%;
+                height: clamp(230px, 60vw, 600px);
+                aspect-ratio: unset;
+            }
+        }
+    }
+
+    figure {
+        width: 100%;
+        margin: $titleMargin 0;
+
+        img {
+            height: clamp(230px, 60vw, 600px);
+            width: 100%;
+            border-radius: 20px;
+            aspect-ratio: unset;
+        }
+        figcaption {
+            @include text;
+            font-style: italic;
+            text-align: center;
+            margin-top: .75em;
+        }
+    }
+}

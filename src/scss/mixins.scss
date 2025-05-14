@@ -1,0 +1,52 @@
+@use "sass:math";
+
+@mixin flexColumns($count, $gap) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+
+    & > * {
+        flex: 0 0 calc(100% / $count - $gap * ($count - 1) / $count);
+    }
+}
+
+@mixin clamp($property, $min, $max, $dynamic: null) {
+    @if $dynamic == null {
+        $dynamic: math.div($max, 10);
+    }
+    #{$property}: clamp(#{$min}px, #{$dynamic}vw, #{$max}px);
+}
+
+@mixin textOverflow($lines: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+}
+
+@mixin width100vw {
+    width: 100vw;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
+    margin-right: calc(-1 * (100vw - 100%) / 2);
+}
+
+@mixin hoverUnderline {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: $colorWhite;
+        opacity: 0;
+        pointer-events: none;
+    }
+    &:hover {
+        &::after {
+            opacity: .6;
+        }
+    }
+}

@@ -1,0 +1,606 @@
+.card-with-icon {
+
+    padding: clamp(20px, 3vw, 32px);
+    border-radius: clamp(12px, 2vw, 20px);
+    background: $colorBgBlue;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    position: relative;
+    overflow: hidden;
+
+    &_transparent {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    &_white-text {
+        .card-with-icon__title,
+        .card-with-icon__text {
+            color: $colorWhite;
+        }
+    }
+
+    &_vertical {
+        flex-direction: column;
+    }
+
+    &:hover {
+        .card-with-icon__img {
+            scale: 1.4;
+            transform-origin: right bottom;
+        }
+    }
+
+    // .card-with-icon_num
+    &_num {
+        width: clamp(26px, 3vw, 30px);
+        padding: 0;
+        &::before {
+            counter-increment: counter-list;
+            content: counter(counter-list);
+        }
+    }
+
+    // .card-with-icon__icon
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
+        
+        aspect-ratio: 1;
+        border-radius: clamp(4px, 1vw, 8px);
+        flex-shrink: 0;
+        background: $colorPrimary;
+
+        text-align: center;
+        font-weight: 700;
+        font-size: clamp(16px, 2vw, 18px);
+        line-height: 1.1;
+        color: $colorWhite;
+
+        svg {
+            width: clamp(20px, 3vw, 28px);
+            height: auto;
+
+            color: $colorWhite;
+        }
+
+        &_reverse {
+            background: none;
+            padding: 0;
+
+            svg {
+                width: clamp(36px, 4vw, 44px);
+                color: $colorPrimary;
+            }
+        }
+    }
+
+    // .card-with-icon__content
+    &__content {
+        padding-top: 2px;
+    }
+
+    // .card-with-icon__title
+    &__title {
+        @include h5;
+    }
+
+    // .card-with-icon__text
+    &__text {
+        @include text;
+        color: $colorText;
+        margin-top: 12px;
+        &:first-child {
+            margin-top: 0;
+        }
+
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+            li {
+                display: flex;
+
+                &::before {
+                    content: '';
+                    width: 4px;
+                    height: 4px;
+                    flex-shrink: 0;
+                    border-radius: 50%;
+                    display: block;
+                    background-color: $colorText;
+                    margin: .5em .5em 0;
+                }
+            }
+        }
+    }
+
+    // .card-with-icon__img
+    &__img {
+        transition: $normalTransition;
+
+        position: absolute;
+        bottom: -18px;
+        right: -18px;
+        width: 140px;
+        height: auto;
+        display: block;
+
+        z-index: -1;
+        opacity: .5;
+    }
+
+    // .card-with-icon__cover
+    &__cover {
+        transition: $normalTransition;
+
+        width: 100%;
+        aspect-ratio: 33 / 22;
+        margin-top: auto;
+
+        border-radius: 8px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+
+.card-with-img {
+
+    background: $colorWhite;
+    padding: clamp(8px, 2vw, 12px);
+    border-radius: clamp(12px, 2vw, 20px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: clamp(8px, 2vw, 12px);
+        right: clamp(8px, 2vw, 12px);
+
+        width: 22px;
+        aspect-ratio: 1;
+        background: url(../../img/cards/hover-icon.svg) center / contain no-repeat;
+        opacity: 0;
+    }
+
+    &:hover {
+        .card-with-img__img img {
+            scale: 1.2;
+        }
+
+        &::after  {
+            opacity: 1;
+        }
+    }
+
+    @media screen and (min-width: $gridTabletBreakpoint) {
+        &.cell-2-2 {
+            grid-row: span 2;
+            grid-column: span 2;
+    
+            .card-with-img__img {
+                aspect-ratio: 580 / 307;
+            }
+    
+            .card-with-img__title {
+                font-size: 26px;
+            }
+    
+            .card-with-img__text {
+                font-size: 18px;
+            }
+        }
+    
+        // 1 строка, 2 колонки
+        &.cell-1-2 {
+            grid-column: span 2;
+    
+            display: flex;
+            flex-direction: row;
+    
+            .card-with-img__img {
+                margin-bottom: 0;
+                margin-right: 12px;
+    
+                min-height: 214px;
+                max-width: 266px;
+                aspect-ratio: 266 / 214;
+            }
+
+            &::after {
+                top: clamp(8px, 2vw, 12px);
+                bottom: unset;
+                rotate: -90deg;
+            }
+        }
+    
+        // 2 строки, 1 колонка
+        &.cell-2-1 {
+            grid-row: span 2;
+        }
+    }
+
+
+    // .card-with-img__img
+    &__img {
+        width: 100%;
+        aspect-ratio: 266 / 192;
+        margin-bottom: 4px;
+
+        border-radius: 8px;
+        overflow: hidden;
+
+        @media screen and (max-width: $breakpoint1200) {
+            aspect-ratio: 32 / 20;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: $normalTransition;
+        }
+
+        &_fix {
+            height: 192px;
+            aspect-ratio: unset;
+
+            @media screen and (max-width: $breakpoint1200) {
+                aspect-ratio: unset;
+            }
+        }
+    }
+
+    // .card-with-img__content
+    &__content {
+        padding: clamp(12px, 2vw, 20px);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .card-with-img__tag
+    &__tag {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        color: $colorPrimary;
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        width: fit-content;
+
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: 1px solid $colorPrimary;
+
+        &:first-child {
+            margin-bottom: clamp(12px, 2vw, 16px);
+        }
+        &:not(:first-child) {
+            margin-top: clamp(12px, 2vw, 16px);
+        }
+    }
+    
+    // .card-with-img__title
+    &__title {
+        @extend .card-with-icon__title;
+    }
+
+    // .card-with-img__text
+    &__text {
+        @extend .card-with-icon__text;
+
+        &:not(:last-child) {
+            margin-bottom: clamp(12px, 2vw, 16px);
+        }
+    }
+
+    // .card-with-img__date
+    &__date {
+        &::before {
+            content: '';
+            height: 16px;
+            width: 16px;
+            background: url(../img/cards/date-icon.svg) center / contain no-repeat;
+            flex-shrink: 0;
+        }
+
+        &:last-child {
+            margin-top: auto;
+        }
+
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+
+        font-size: 14px;
+        line-height: 1;
+        color: rgba($color: $colorBlack, $alpha: .5)
+    }
+}
+
+
+.case-card {
+
+    padding: clamp(20px, 3vw, 32px);
+    background: $colorBgBlue;
+    border-radius: clamp(12px, 2vw, 20px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+
+    // .case-card__logo
+    &__logo {
+        height: clamp(40px, 6vw, 60px);
+        width: auto;
+        display: block;
+    }
+
+    // .case-card__text
+    &__text {
+        margin-top: 16px;
+        margin-bottom: 24px;
+        @include text;
+        color: $colorText2;
+    }
+
+    // .case-card__btn
+    &__btn {
+        margin-top: auto;
+        font-size: clamp(16px, 2vw, 20px);
+        font-weight: 500;
+
+        display: flex;
+        gap: 10px;
+        line-height: 1.1;
+        align-items: center;
+
+        img {
+            width: clamp(24px, 3vw, 28px);
+            height: auto;
+        }
+    }
+}
+
+
+.client-card {
+
+    padding: clamp(20px, 3vw, 32px);
+    border-radius: clamp(12px, 2vw, 16px);
+    min-height: clamp(220px, 30vw, 280px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    border: 1px solid #E4E4E4;
+
+    &_fill {
+        background: $colorBgBlue;
+        border: none;
+    }
+
+    // .client-card__img
+    &__img {
+        height: 44px;
+        width: auto;
+        display: block;
+    }
+
+    // .client-card__text
+    &__text {
+        margin-top: 24px;
+        margin-bottom: 24px;
+
+        font-size: 16px;
+        line-height: 1.4;
+        color: $colorText2;
+    }
+
+    // .client-card__title
+    &__title {
+        margin-top: auto;
+
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: $colorPrimary;
+    }
+}
+
+
+.tariff-card {
+
+    $tariffCardRadius: clamp(12px, 2vw, 20px);
+
+    border-radius: $tariffCardRadius;
+    border: 1px solid $colorBlack;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    height: 100%;
+
+    // .tariff-card__header
+    &__header {
+        border-radius: 0 0 $tariffCardRadius $tariffCardRadius;
+        background: $colorBlack;
+        color: $colorWhite;
+        padding: clamp(20px, 3vw, 32px);
+        
+        text-align: center;
+    }
+
+    // .tariff-card__price
+    &__price {
+        font-size: clamp(36px, 5vw, 48px);
+    }
+
+    // .tariff-card__title
+    &__title {
+        font-size: clamp(20px, 2vw, 24px);
+        font-weight: 600;
+        margin-top: clamp(12px, 1vw, 16px);
+    }
+
+    // .tariff-card__text
+    &__text {
+        font-size: 14px;
+        margin-top: clamp(4px, 1vw, 8px);
+    }
+
+    // .tariff-card__body
+    &__body {
+        padding: clamp(20px, 3vw, 32px);
+    }
+
+    // .tariff-card__list
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        @include text;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            &::before {
+                content: '';
+                // line-height: inherit;
+                // position: relative;
+                // top: .3lh;
+                display: block;
+                width: 8px;
+                height: 8px;
+                flex-shrink: 0;
+                border-radius: 50%;
+                background: $colorPrimary;
+            }
+        }
+    }
+}
+
+.doc-card {
+
+    padding: clamp(20px, 3vw, 32px);
+    border-radius: clamp(12px, 2vw, 20px);
+    background: $colorBgBlue;
+
+    overflow: hidden;
+    position: relative;
+
+    min-height: 130px;
+
+    // .doc-card__title
+    &__title {
+        font-size: clamp(18px, 3vw, 26px);
+        font-weight: 600;
+        line-height: 1.3;
+
+        max-width: min(810px, calc(100% - clamp(72px, 16vw, 168px)));
+    }
+
+    // .doc-card__img
+    &__img {
+        width: clamp(72px, 16vw, 168px);
+        position: absolute;
+        right: 12px;
+        bottom: calc(-1 * clamp(12px, 3vw, 30px));
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+
+.text-as-card {
+    padding: clamp(20px, 3vw, 36px) 0;
+
+    p {
+        max-width: 372px;
+    }
+
+    @media screen and (max-width: $breakpoint576) {
+        padding: 0 0 8px;
+    }
+}
+
+.card-lists {
+    @media screen and (max-width: $breakpoint992) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-list {
+
+    padding: clamp(20px, 3vw, 32px);
+    border-radius: clamp(12px, 2vw, 16px);
+
+    background: rgba($colorWhite, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+
+    display: flex;
+    flex-direction: column;
+
+
+    & > * {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: clamp(20px, 2vw, 24px) 0;
+
+        &:first-child {
+            padding-top: 0;
+        }
+        &:last-child {
+            border: none;
+            padding-bottom: 0;
+        }
+
+        @media screen and (max-width: $breakpoint992) {
+            flex: unset
+        }
+    }
+
+}

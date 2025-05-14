@@ -1,0 +1,67 @@
+.about {
+
+    padding: clamp(20px, 3vw, 32px);
+    $aboutPaddingBottom: 128px;
+    padding-bottom: $aboutPaddingBottom;
+    border-radius: clamp(12px, 2vw, 20px);
+    background: $colorBgBlue;
+    margin-top: clamp(20px, 6vw, 100px);
+
+    position: relative;
+    display: flex;
+    gap: 24px;
+
+    & > * {
+        flex: 1;
+    }
+
+    @media screen and (max-width: $breakpoint992) {
+        flex-direction: column;
+        padding-bottom: 0;
+        margin-top: 0;
+    }
+
+    // .about__content
+    &__content {
+        
+    }
+
+    // .about__title
+    &__title {
+        @include h2;
+    }
+
+    // .about__text
+    &__text {
+        @include text;
+        margin-top: clamp(16px, 2vw, 20px);
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    // .about__img
+    &__img {
+
+        position: relative;
+        align-self: flex-end;
+
+        @media screen and (max-width: $breakpoint992) {
+            align-self: center;
+        }
+
+        img {
+            display: block;
+            position: absolute;
+            bottom: calc(-1 * $aboutPaddingBottom);
+            left: 0;
+            width: 100%;
+            height: auto;
+
+            @media screen and (max-width: $breakpoint992) {
+                position: static;
+                max-width: 500px;
+            }
+        }
+    }
+}
