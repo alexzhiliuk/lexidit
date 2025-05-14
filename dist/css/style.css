@@ -403,6 +403,15 @@ button {
   margin-top: clamp(8px, 1vw, 12px);
 }
 
+.mt-40 {
+  margin-top: clamp(24px, 4vw, 40px);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
 .section {
   padding-top: calc(clamp(52px, 9vw, 90px) + clamp(20px, 4vw, 40px));
   background: #FFFFFF;
@@ -793,6 +802,17 @@ button {
   border-top: 1px solid rgba(35, 35, 35, 0.15);
 }
 
+.more-btn {
+  margin-top: clamp(24px, 4vw, 40px);
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 575.98px) {
+  .more-btn .btn {
+    width: 100%;
+  }
+}
+
 @keyframes slideIn {
   to {
     transform: translateX(0);
@@ -838,6 +858,15 @@ button {
 }
 .btn:hover svg {
   color: #ED3A3A;
+}
+.btn_outline {
+  background: none;
+  outline: 1px solid #232323;
+  color: #232323;
+}
+.btn_outline:hover {
+  background: #232323;
+  color: #FFFFFF;
 }
 .btn_s {
   height: clamp(40px, 5vw, 46px);

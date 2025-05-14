@@ -82,6 +82,15 @@ $sectionPadding: clamp(52px, 9vw, 90px);
     margin-top: clamp(8px, 1vw, 12px);
 }
 
+.mt-40 {
+    margin-top: clamp(24px, 4vw, 40px);
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 
 // Section
 .section {
@@ -493,6 +502,17 @@ $sectionPadding: clamp(52px, 9vw, 90px);
     border-top: $inputBorder;
 }
 
+.more-btn {
+    margin-top: clamp(24px, 4vw, 40px);
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: $breakpoint576) {
+        .btn {
+            width: 100%;
+        }
+    }
+}
 
 // Animations
 @keyframes slideIn {

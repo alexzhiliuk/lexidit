@@ -35,6 +35,18 @@
         }
     }
 
+    &_outline {
+        background: none;
+        outline: 1px solid $colorBlack;
+        color: $colorBlack;
+
+        &:hover {
+            background: $colorBlack;
+            color: $colorWhite;
+            
+        }
+    }
+
     &_s {
         height: clamp(40px, 5vw, 46px);
         font-size: 16px;
