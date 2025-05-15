@@ -30,24 +30,42 @@ $arrowSize: clamp(18px, 2vw, 24px);
 .advantages {
 
 
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    background: rgba($colorWhite, .7);
-    border: 1px solid rgba($colorWhite, .6);
+    // backdrop-filter: blur(40px);
+    // -webkit-backdrop-filter: blur(40px);
+    // background: rgba($colorWhite, .7);
+    // border: 1px solid rgba($colorWhite, .6);
     border-radius: 16px;
-    padding: clamp(20px, 3vw, 32px);
+    // padding: clamp(20px, 3vw, 32px);
 
     display: flex;
     flex-direction: column;
-    gap: clamp(16px, 2vw, 24px);
+    // gap: clamp(16px, 2vw, 24px);
+    position: relative;
+    overflow-x: scroll;
+    width: 100%;
 
     // .advantages__header
     &__header {
         @include advantagesContainerProperties;
-        align-items: center;        
+        align-items: center;
+        min-width: max-content;
+
+        border-radius: 16px 16px 0 0;
+        padding: clamp(20px, 3vw, 32px);        
+        padding-bottom: clamp(16px, 2vw, 24px);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        background: rgba($colorWhite, .7);
+        border: 1px solid rgba($colorWhite, .6);
+        border-bottom: none;
+        
+        position: sticky;
+        top: $headerHeight;
         @media screen and (max-width: $breakpoint768) {
             align-items: unset;
         }
+        z-index: 2;
+        
     }
 
     // .advantages__tariffs
@@ -80,8 +98,17 @@ $arrowSize: clamp(18px, 2vw, 24px);
     }
 
     // .advantages__body
-
     &__body {
+        border-radius: 0 0 16px 16px;
+        padding: clamp(20px, 3vw, 32px);
+        padding-top: 0;
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        background: rgba($colorWhite, .7);
+        border: 1px solid rgba($colorWhite, .6);
+        border-top: none;
+        position: relative;
+        z-index: 1;
     }
 }
 

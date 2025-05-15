@@ -3,7 +3,7 @@
     background: $colorWhite;
     border-radius: 20px;
 
-    margin-top: 30px;
+    margin-top: clamp(24px, 4vw, 40px);
     padding: 32px;
     display: flex;
     align-items: center;

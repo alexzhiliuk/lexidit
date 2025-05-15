@@ -373,18 +373,6 @@
     // .case-card__btn
     &__btn {
         margin-top: auto;
-        font-size: clamp(16px, 2vw, 20px);
-        font-weight: 500;
-
-        display: flex;
-        gap: 10px;
-        line-height: 1.1;
-        align-items: center;
-
-        img {
-            width: clamp(24px, 3vw, 28px);
-            height: auto;
-        }
     }
 }
 

@@ -1,8 +1,12 @@
+$headerHeight: clamp(60px, 10vw, 102px);
 .header {
 
     background: $colorPrimary;
     color: $colorWhite;
-    padding: clamp(12px, 3vw, 28px) 0;
+    // padding: clamp(12px, 3vw, 28px) 0;
+    display: flex;
+    align-items: center;
+    height: $headerHeight;
     position: sticky;
     z-index: 998;
     top: 0;
@@ -165,7 +169,7 @@
         gap: 16px;
 
         @media screen and (min-width: $burgerBreakpoint) and (max-width: $breakpoint1400) {
-            gap: 4px;
+            gap: 12px;
         }
     }
 
@@ -258,10 +262,14 @@
     gap: 40px;
     overflow-y: auto;
 
-    transform: translateX(100%);
+    // transform: translateX(100%);
     opacity: 0;
+    transition: $quickTransition;
+    pointer-events: none;
     &.active {
-        animation: slideIn 0.5s forwards;
+        // animation: slideIn 0.2s forwards;
+        opacity: 1;
+        pointer-events: all;
     }
 
 
@@ -299,6 +307,7 @@
             &.mobile-menu__prev {
                 justify-content: flex-start;
                 gap: 4px;
+                font-weight: 500;
                 &::before {
                     content: '';
                     width: 24px;

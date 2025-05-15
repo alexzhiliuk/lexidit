@@ -97,6 +97,9 @@
         text-decoration: underline;
         text-underline-offset: 4px;
         white-space: nowrap;
+        &:hover {
+            color: $colorPrimary;
+        }
     }
 
     // .contact__phone
@@ -105,5 +108,8 @@
         font-weight: 500;
         line-height: 1.4;
         white-space: nowrap;
+        &:hover {
+            color: $colorPrimary;
+        }
     }
 }

@@ -483,13 +483,33 @@ $sectionPadding: clamp(52px, 9vw, 90px);
     align-items: center;
     gap: 10px;
 
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px);
     font-weight: 500;
 
-    img {
-        width: 28px;
-        height: auto;
-        display: block;
+    &:hover {
+        .all-items-link__icon {
+            background: $colorPrimary;
+        }
+    }
+
+    &__icon {
+        width: clamp(24px, 3vw, 28px);
+        aspect-ratio: 1;
+        flex-shrink: 0;
+        border-radius: clamp(4px, 1vw, 8px);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $colorBlack;
+
+        svg {
+            width: 16px;
+            height: auto;
+            display: block;
+            color: $colorWhite;
+        }
+
     }
 }
 

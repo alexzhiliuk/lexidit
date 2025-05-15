@@ -13,5 +13,9 @@
         color: $colorPlaceholder
     }
 
+    &.error {
+        border-color: $colorPrimary;
+    }
+
 
 }

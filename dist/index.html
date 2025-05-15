@@ -11,20 +11,20 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap&_v=20250514204939" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap&_v=20250515123323" rel="stylesheet">
     
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.min.css?_v=20250514204939">
+    <link rel="stylesheet" href="css/style.min.css?_v=20250515123323">
 
     <link
       rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css?_v=20250514204939"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css?_v=20250515123323"
     />
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js?_v=20250514204939"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?_v=20250514204939"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js?_v=20250515123323"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?_v=20250515123323"></script>
 
     <title>Главная</title>
 </head>
@@ -340,39 +340,43 @@
             <h2 class="section-title">Услуги</h2>
             <a href="" class="all-items-link">
                 Все услуги
-                <img src="img/icons/more-link.svg" alt="">
+                <div class="all-items-link__icon">
+                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                        <use href="img/icons/more-sprite.svg#icon"></use>
+                    </svg>                        
+                </div>
             </a>
         </div>
         <div class="free-four-columns-grid js-mobile-slider" id="services">
-            <a class="card-with-img cell-2-2">
+            <a href="legal-outsourcing.html" class="card-with-img cell-2-2">
                 <div class="card-with-img__img"><img src="img/cards/s1.png" alt=""></div>
                 <div class="card-with-img__content">
                     <h3 class="card-with-img__title">Юридический аутсорсинг</h3>
                     <p class="card-with-img__text">Оказываем профессиональные юридические услуги в сфере иммиграционного права</p>
                 </div>
             </a>
-            <a class="card-with-img cell-1-2">
+            <a href="accounting-outsourcing.html" class="card-with-img cell-1-2">
                 <div class="card-with-img__img"><img src="img/cards/s2.png" alt=""></div>
                 <div class="card-with-img__content">
                     <h3 class="card-with-img__title">Бухгалтерский аутсорсинг</h3>
                     <p class="card-with-img__text">Закрываем все бухгалтерские вопросы в вашей компании, консультируем и даем рекомендации по оптимизации</p>
                 </div>
             </a>
-            <a class="card-with-img cell-2-1">
+            <a href="legalization.html" class="card-with-img cell-2-1">
                 <div class="card-with-img__img"><img src="img/cards/s4.png" alt=""></div>
                 <div class="card-with-img__content">
                     <h3 class="card-with-img__title">Резиденция и легализация в Испании</h3>
                     <p class="card-with-img__text">Помогаем избежать заключения <br>и выдачи из страны и доказать статус оседлости (arraigo) <br>в испанском обществе</p>
                 </div>
             </a>
-            <a class="card-with-img cell-1-2">
+            <a href="extradition.html" class="card-with-img cell-1-2">
                 <div class="card-with-img__img"><img src="img/cards/s3.png" alt=""></div>
                 <div class="card-with-img__content">
                     <h3 class="card-with-img__title">Экстрадиция</h3>
                     <p class="card-with-img__text">Помогаем с оформлением Идентификационного Номера Иностранца в Испании</p>
                 </div>
             </a>
-            <a class="card-with-img cell-2-1">
+            <a href="nie.html" class="card-with-img cell-2-1">
                 <div class="card-with-img__img"><img src="img/cards/s5.png" alt=""></div>
                 <div class="card-with-img__content">
                     <h3 class="card-with-img__title">Получение NIE</h3>
@@ -481,9 +485,13 @@
                     <a href="" class="case-card">
                         <img class="case-card__logo" src="img/cards/Name=Logo 1.png" alt="">
                         <p class="case-card__text">Закрываем полный спектр услуг (бухгалтерия, кадровая поддержка, юридическа поддержка) для крупной государственной компании на всей территории Испании.</p>
-                        <div class="case-card__btn">
+                        <div class="case-card__btn all-items-link">
                             Подробнее
-                            <img src="img/cards/case-icon.svg" alt="">
+                            <div class="all-items-link__icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="img/icons/more-sprite.svg#icon"></use>
+                                </svg>                        
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -491,9 +499,13 @@
                     <a href="" class="case-card">
                         <img class="case-card__logo" src="img/cards/Name=Logo 2.png" alt="">
                         <p class="case-card__text">С помощью нашей юридической поддержки всемирный туроператор вышел на испанский рынок и развил партнерскую сеть по всей стране.</p>
-                        <div class="case-card__btn">
+                        <div class="case-card__btn all-items-link">
                             Подробнее
-                            <img src="img/cards/case-icon.svg" alt="">
+                            <div class="all-items-link__icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="img/icons/more-sprite.svg#icon"></use>
+                                </svg>                        
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -501,9 +513,13 @@
                     <a href="" class="case-card">
                         <img class="case-card__logo" src="img/cards/Name=Logo 3.png" alt="">
                         <p class="case-card__text">Оказали оперативную поддержку в открытии офисов и филиалов на территории Испании для международной компании, производящей средства по уходу за полостью рта и косметики</p>
-                        <div class="case-card__btn">
+                        <div class="case-card__btn all-items-link">
                             Подробнее
-                            <img src="img/cards/case-icon.svg" alt="">
+                            <div class="all-items-link__icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="img/icons/more-sprite.svg#icon"></use>
+                                </svg>                        
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -511,9 +527,13 @@
                     <a href="" class="case-card">
                         <img class="case-card__logo" src="img/cards/Name=Logo 4.png" alt="">
                         <p class="case-card__text">Оказали оперативную поддержку в открытии офисов и филиалов на территории Испании для международной компании, производящей средства по уходу за полостью рта и косметики</p>
-                        <div class="case-card__btn">
+                        <div class="case-card__btn all-items-link">
                             Подробнее
-                            <img src="img/cards/case-icon.svg" alt="">
+                            <div class="all-items-link__icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="img/icons/more-sprite.svg#icon"></use>
+                                </svg>                        
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -528,11 +548,11 @@
             <h2 class="section-title">Наши клиенты</h2>
         </div>
         <div class="js-mobile-slider four-columns-grid" id="clients">
-            <div class="client-card">
+            <a href="" class="client-card">
                 <img src="img/cards/Name=Logo 5.png" alt="" class="client-card__img">
-                <p class="client-card__text">Крупный производитель косметической и фрамацевтической продукции SPLAT</p>
+                <p class="client-card__text">Крупный производитель косметическойи фрамацевтической продукции SPLAT</p>
                 <h3 class="client-card__title">SPLAT</h3>
-            </div>
+            </a>
             <div class="client-card">
                 <img src="img/cards/Name=Logo 6.png" alt="" class="client-card__img">
                 <p class="client-card__text">Ремонт судов, поставщик судовых запасных частей, международное портовое агентство Portus Libera</p>
@@ -555,7 +575,7 @@
             </div>
             <div class="client-card">
                 <img src="img/cards/Name=Logo 10.png" alt="" class="client-card__img">
-                <p class="client-card__text">Посольство Украины в Испании</p>
+                <p class="client-card__text">Посольство Украиныв Испании</p>
                 <h3 class="client-card__title">gov.ua</h3>
             </div>
             <div class="client-card">
@@ -565,7 +585,7 @@
             </div>
             <div class="client-card">
                 <img src="img/cards/Name=Logo 12.png" alt="" class="client-card__img">
-                <p class="client-card__text">Один из ведущих производителей вертолётов в мире</p>
+                <p class="client-card__text">Один из ведущих производителей вертолётовв мире</p>
                 <h3 class="client-card__title">airbus</h3>
             </div>
 
@@ -803,13 +823,19 @@
             </div>
             <div class="footer__socials">
                 <a href="">
-                    <img src="img/footer/instagram.png" alt="">
+                    <svg width="27" height="26" xmlns="http://www.w3.org/2000/svg">
+                        <use href="img/icons/social-sprite.svg#inst"></use>
+                    </svg>
                 </a>
                 <a href="">
-                    <img src="img/footer/facebook.png" alt="">
+                    <svg width="27" height="27"  xmlns="http://www.w3.org/2000/svg">
+                        <use href="img/icons/social-sprite.svg#fb"></use>
+                    </svg>
                 </a>
                 <a href="">
-                    <img src="img/footer/in.png" alt="">
+                    <svg width="27" height="27"  xmlns="http://www.w3.org/2000/svg">
+                        <use href="img/icons/social-sprite.svg#in"></use>
+                    </svg>
                 </a>
             </div>
             <div class="footer__right">
@@ -828,6 +854,6 @@
     </div>
 </footer>
 
-        <script src="js/app.min.js?_v=20250514204939"></script>
+        <script src="js/app.min.js?_v=20250515123323"></script>
     </body>
 </html>

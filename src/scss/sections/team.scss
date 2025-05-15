@@ -96,15 +96,22 @@
         align-items: unset;
     }
 
+    &:hover {
+        .worker__pattern {
+            scale: 1.4;
+            transform-origin: right top;
+        }
+    }
 
     // .worker__img
     &__img {
-        flex: 0 1 296px;
+        flex: 0 1 296px;        
         img {
             width: 100%;
             height: clamp(300px, 35vw, 350px);
             object-fit: cover;
             border-radius: clamp(8px, 1vw, 12px);
+            transition: $normalTransition;
 
             @media screen and (max-width: $breakpoint992) {
                 height: auto;
@@ -152,6 +159,7 @@
         width: 170px;
         height: 170px;
         z-index: -1;
+        transition: $normalTransition;
 
         @media screen and (max-width: $breakpoint992) {
             display: none;
