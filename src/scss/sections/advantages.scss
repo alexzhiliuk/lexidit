@@ -37,12 +37,12 @@ $arrowSize: clamp(18px, 2vw, 24px);
     border-radius: 16px;
     // padding: clamp(20px, 3vw, 32px);
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     // gap: clamp(16px, 2vw, 24px);
-    position: relative;
-    overflow-x: scroll;
+    // position: relative;
     width: 100%;
+    position: relative;
 
     // .advantages__header
     &__header {
@@ -59,8 +59,8 @@ $arrowSize: clamp(18px, 2vw, 24px);
         border: 1px solid rgba($colorWhite, .6);
         border-bottom: none;
         
-        position: sticky;
-        top: $headerHeight;
+        position: relative;
+        // top: $headerHeight;
         @media screen and (max-width: $breakpoint768) {
             align-items: unset;
         }
@@ -109,6 +109,7 @@ $arrowSize: clamp(18px, 2vw, 24px);
         border-top: none;
         position: relative;
         z-index: 1;
+        min-width: max-content;
     }
 }
 
