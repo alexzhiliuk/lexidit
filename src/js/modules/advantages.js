@@ -27,28 +27,34 @@ $(".advantages").each(function (i, advantagesContainer) {
     var clonedHeader = blockHeader.clone()
       .css({
         'position': 'absolute',
-        'top': siteHeaderHeight + 'px',
+        'top': '0px',
         'width': blockBodyWidth + 'px',
         'left': '0px',
         'display': 'none',
         'z-index': 900,
-        'transition': 'unset',
         'border-bottom': '1px solid #E4E4E4'
       })
       .appendTo(advantagesContainer);
 
-    $(window).on('scroll', function () { 
-        
+    
+    if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        clonedHeader.css("transition", "none");
+    }
+    
+
+    $(window).on('resize', function () {  
         siteHeaderHeight = siteHeader.outerHeight();
         blockOffsetTop = block.offset().top;
         blockHeight = block.outerHeight();
         blockHeaderHeight = blockHeader.outerHeight();
         blockHeaderWidth = blockHeader.outerWidth();
         blockBodyWidth = blockBody.outerWidth();
+    })
+
+    function updateHeaderPosition() {
 
         var scrollTop = $(window).scrollTop();
         var blockBottom = blockOffsetTop + blockHeight;
-        var viewportBottom = scrollTop + $(window).height();
         
         // Позиции для срабатывания фиксации
         var startFixedPosition = blockOffsetTop - siteHeaderHeight + blockHeaderHeight / 2;
@@ -70,6 +76,20 @@ $(".advantages").each(function (i, advantagesContainer) {
             
             // Показываем оригинальный хедер
             blockHeader.css('visibility', 'visible');
+        }
+    }
+
+    $(window).on('scroll', function () { 
+        
+        if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            
+            clearTimeout(window.scrollTimeout);
+            window.scrollTimeout = setTimeout(function() {
+                updateHeaderPosition();
+            }, 500);
+        } else {
+            // Для десктопов - вызываем сразу
+            updateHeaderPosition();
         }
         
     })
