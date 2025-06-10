@@ -132,6 +132,10 @@
         display: flex;
         flex-direction: column;
         gap: clamp(20px, 3vw, 32px);
+
+        & > .checkbox-confirm {
+            margin-top: calc(-1 * (clamp(8px, 2vw, 20px)));
+        }
     }
 
     // .cta__items

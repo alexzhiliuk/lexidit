@@ -9,10 +9,19 @@
 
         <form action="" class="cta__form">
             <div class="cta__fields">
-                <input class="input" type="text" placeholder="Ваше имя">
+                <div class="input-wrapper error" data-error="Ошибка">
+                    <input class="input" type="text" placeholder="Ваше имя">
+                </div>
                 <input class="input" type="tel" placeholder="+999 (99) 999 9999">
+                <label class="checkbox-confirm">
+                    <input type="checkbox" class="checkbox">
+                    Соглашаюсь на обработку персональных данных
+                </label>
                 <button type="submit" class="btn">Получить консультацию</button>
             </div>
+            <p>
+                Ответ формы
+            </p>
         </form>
     </div>
 </section>

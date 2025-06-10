@@ -14,8 +14,70 @@
     }
 
     &.error {
-        border-color: $colorPrimary;
+        border-color: $colorBlack;
     }
 
+
+}
+
+.input-wrapper {
+    .input {
+        width: 100%;
+    }
+
+    &.error {
+        &::after {
+            content: attr(data-error);
+            color: $colorBlack;
+            @include text;
+            margin-top: 4px;
+        }
+
+        .input {
+            border-color: $colorBlack;
+        }
+    }
+}
+
+.checkbox-confirm {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    }
+}
+
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1;
+
+    width: 20px;
+    height: 20px;
+
+    border: $inputBorder;
+    border-radius: 4px;
+    background: $colorInput;
+
+    position: relative;
+
+    &::before {
+        content: '';
+        opacity: 0;
+        position: absolute;
+        inset: 0;
+        background: url(../img/icons/checkbox.svg) center / contain no-repeat;
+    }
+
+    &:checked {
+        &::before {
+            opacity: 1;
+        }
+    }
 
 }

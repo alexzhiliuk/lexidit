@@ -921,7 +921,55 @@ button {
   color: #808080;
 }
 .input.error {
-  border-color: #ED3A3A;
+  border-color: #232323;
+}
+
+.input-wrapper .input {
+  width: 100%;
+}
+.input-wrapper.error::after {
+  content: attr(data-error);
+  color: #232323;
+  font-weight: 400;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+.input-wrapper.error .input {
+  border-color: #232323;
+}
+
+.checkbox-confirm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.checkbox-confirm:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(35, 35, 35, 0.15);
+  border-radius: 4px;
+  background: #FAFAFA;
+  position: relative;
+}
+.checkbox::before {
+  content: "";
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  background: url(../img/icons/checkbox.svg) center/contain no-repeat;
+}
+.checkbox:checked::before {
+  opacity: 1;
 }
 
 .card-with-icon {
@@ -2104,6 +2152,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: clamp(20px, 3vw, 32px);
+}
+.cta__form > .checkbox-confirm {
+  margin-top: calc(-1 * clamp(8px, 2vw, 20px));
 }
 .cta__items {
   display: flex;
