@@ -55,6 +55,7 @@ $(".advantages").each(function (i, advantagesContainer) {
 
         var scrollTop = $(window).scrollTop();
         var blockBottom = blockOffsetTop + blockHeight;
+        blockHeight = block.outerHeight();
         
         // Позиции для срабатывания фиксации
         var startFixedPosition = blockOffsetTop - siteHeaderHeight + blockHeaderHeight / 2;
