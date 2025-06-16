@@ -2810,19 +2810,34 @@ button {
     flex: unset;
   }
 }
-.tabs__list {
+.tabs__list,
+.tabs ul {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: clamp(16px, 2vw, 24px);
+  column-gap: 56px;
   font-weight: 400;
   font-size: clamp(14px, 1.6vw, 16px);
   line-height: 1.4;
 }
-.tabs__list li {
+.tabs__list > *,
+.tabs ul > * {
+  flex: 0 0 calc(50% - 28px);
+}
+@media screen and (max-width: 991.98px) {
+  .tabs__list > *,
+  .tabs ul > * {
+    flex: 0 0 100%;
+  }
+}
+.tabs__list li,
+.tabs ul li {
   display: flex;
   gap: 20px;
 }
-.tabs__list li::before {
+.tabs__list li::before,
+.tabs ul li::before {
   content: "";
   height: 2px;
   width: 20px;

@@ -60,11 +60,22 @@
     }
 
     // .tabs__list
-    &__list {
+    &__list,
+    ul {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: clamp(16px, 2vw, 24px);
+        column-gap: 56px;
         @include text;
+
+        & > * {
+            flex: 0 0 calc(50% - 56px / 2);
+
+            @media screen and (max-width: $breakpoint992) {
+                flex: 0 0 100%;
+            }
+        }
 
         li {
             display: flex;
